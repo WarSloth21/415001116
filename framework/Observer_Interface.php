@@ -1,6 +1,6 @@
 <?php
 interface Observer_Interface
 {
-    plublic function update(Observer_Interface $obs);
+    plublic function update(Observeable_Model $obs);
     
 }

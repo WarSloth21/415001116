@@ -12,6 +12,7 @@ class View implements Observer_Interface
 	
 	public function display()
 	{
+		extract($this->data);
 		echo $this->tpl;
 	}
 	
@@ -23,7 +24,12 @@ class View implements Observer_Interface
 	
 	public function update(Observable_Model $obs)
 	{
-		$re
+		$rec = $obs->giveUpdate();
+		foreach ($rec as $r) 
+		{
+			$this->addVar($r['name'], $r['val']);
+		}
+		$this->display();
 	}
 	
 }
