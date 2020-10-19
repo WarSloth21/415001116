@@ -30,49 +30,19 @@
 		<header></header>
 		<main>
 			<h1>Most Popular</h1>
-			<div class="centered">
-				<section>
-				<a href="#"><img src="images/datastructures.jpg" alt="First Course" title="Data structures">
-				<span class="course-title">Introduction to Data Structures</span>
-				<span>Course Instructor</span></a>
-				</section>
-				<section>
-				<a href="#"><img src="images/compiler.png" alt="Second course" title="Compiler Theory">
-				<span class="course-title">Compiler Theory</span>
-				<span>Course Instructor</span></a>
-				</section>
-				<section>
-				<a href="#"><img src="images/software.jpg" alt="Third Course" title="Software Engineering">
-				<span class="course-title">Software Engineering</span>
-				<span>Course Instructor</span></a>
-				</section>
-				<section>
-				<a href="#"><img src="images/molecular.jpg" alt="Fourth Course" title="Molecular Biochemistry">
-				<span class="course-title">Molecular Biochemistry</span>
-				<span>Course Instructor</span></a>
-				</section>
-			</div>
-			<div class="centered">
-				<section>
-				<a href="#"><img src="images/renewable.jpg" alt="Fifth Course" title="Renewable Energy">
-				<span class="course-title">Renewable Energy</span>
-				<span>Course Instructor</span></a>
-				</section>
-				<section>
-				<a href="#"><img src="images/marine.jpg" alt="Sixth Course" title="Marine Biology">
-				<span class="course-title">Marine Biology</span>
-				<span>Course Instructor</span></a>
-				</section>
-				<section>
-				<a href="#"><img src="images/astronomy.jpg" alt="Seventh Course" title="Introduction to Astronomy">
-				<span class="course-title">Introduction to Astronomy</span>
-				<span>Course Instructor</span></a>
-				</section>
-				<section>
-				<a href="#"><img src="images/robotics.jpg" alt="Eighth Course" title="Robotics">
-				<span class="course-title">Robotics</span>
-				<span>Course Instructor</span></a>
-				</section>
+
+			<?php
+				$i = -1;
+				foreach($popular as $k=>$c):
+					$i++;
+				if (($i % 4) == 0): ?>
+					<div class="centered">
+						<?php
+						endif; ?>
+						<section>
+							<a href="#"><img src="images/<?php echo $c[4]?>" alt="<?php echo $c[0]?>" title="<?php echo $c[0]?>"</a>
+						</section>
+					</div>
 			</div>
 			
 			<h1>Learner Recommended</h1>
