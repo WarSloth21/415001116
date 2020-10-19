@@ -1,5 +1,4 @@
 <?php
-
 class View implements Observer_Interface
 {
 	private $tpl = '';
@@ -7,27 +6,37 @@ class View implements Observer_Interface
 	
 	public function setTemplate(string $filename)
 	{
+		if (!file_exists($filename))
+		{
+			trigger_error('Invalid Template Given (' . $filename . ') No Such File Found', E_USER_ERROR);
+			exit;
+		}
 		$this->tpl = $filename;
 	}
 	
 	public function display()
 	{
 		extract($this->data);
-		echo $this->tpl;
+		require $this->tpl;
 	}
 	
 	
 	public function addVar(string $name, $value)
 	{
+		//Check if Variable Name is Valid
+		if (preg_match('/^[a-zA-Z_\x80-\xff][a-zA-Z0-9_\x80-\xff]*$/', $name) == 0)
+		{
+			trigger_error('Invalid Variable Name Used', E_USER_ERROR);
+		}
 		$this->data[$name] = $value;
 	}
 	
 	public function update(Observable_Model $obs)
 	{
 		$rec = $obs->giveUpdate();
-		foreach ($rec as $r) 
+		foreach ($rec as $k=>$r) 
 		{
-			$this->addVar($r['name'], $r['val']);
+			$this->addVar($k, $r);
 		}
 		$this->display();
 	}

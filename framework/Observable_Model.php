@@ -7,10 +7,10 @@ abstract class Observable_Model extends Model_Abstract implements Observable_Int
 	
 	public function attach(Observer_Interface $o)
 	{
-		$this->observers = $o;
+		$this->observers [] = $o;
 	}
 	
-	public function detach(Observable_Interface $o)
+	public function detach(Observer_Interface $o)
 	{
 		$this->observers = array_filter($this->observers, function ($a) use ($o) {
 															return (! ($a == $o));
@@ -31,6 +31,11 @@ abstract class Observable_Model extends Model_Abstract implements Observable_Int
 	public function giveUpdate()
 	{
 		return $this->updatedData;
+	}
+	
+	public function updateTheChangedData(array $d)
+	{
+		$this->updatedData = $d;
 	}
 	
 	abstract public function getAll() : array;

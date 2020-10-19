@@ -2,7 +2,7 @@
 
 spl_autoload_register(function($class) {
 	if (!defined('APP_DIR')) {
-		define ("ROOT_DIR", 'C:\xampp2\htdocs\COMP 3385\415001116');
+		define ("ROOT_DIR", 'C:\xampp2\htdocs\COMP3385\415001116');
 		define ("APP_DIR", ROOT_DIR . "\app");
 		define ("FRAMEWORK_DIR", ROOT_DIR . '\framework');
 		define ('TPL_DIR', ROOT_DIR . '\tpl');
