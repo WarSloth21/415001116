@@ -40,10 +40,18 @@
 						<?php
 						endif; ?>
 						<section>
-							<a href="#"><img src="images/<?php echo $c[4]?>" alt="<?php echo $c[0]?>" title="<?php echo $c[0]?>"</a>
+							<a href="#"><img src="images/<?php echo $c[4]?>" alt="<?php echo $c[0]?>" title="<?php echo $c[0]?>">
+							<span class="course-title"><?php echo $c[0]?></span>
+							<span>Course Instructor</span></a>
 						</section>
+						<?php
+							if (($i % 4) == 3): ?>
 					</div>
+					<?php 
+						endif;
+					endforeach; ?>
 			</div>
+			
 			
 			<h1>Learner Recommended</h1>
 			<div class="centered">
